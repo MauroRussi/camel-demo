@@ -1,6 +1,5 @@
 package co.com.home.labs.camel;
 
-
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 
