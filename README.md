@@ -42,7 +42,5 @@ mvn clean compile install quarkus:dev
 
 This is a description of every project:
 
-- [Project-1](./project-1/): This project is a Quarkus Camel route written in Java DSL:
-  - From: A timer defined with Camel Quarkus timer.
-  - To: A log defined with Camel Quarkus log.
-  - Message: A hardcoded message.
+- [Project-1](./project-1/): This project is a simple route written in Java DSL that prints in a log a hardcoded message every 2 seconds. It uses a **camel-timer** and **camel-log**.
+- [Project-2](./project-2/): This project is a route written in Java DSL that exposes 3 Rest endpoints and routes every request to an internal routes that set the response of the endpoints and prints them in a log. It uses a **camel-rest**, **camel-direct** and **camel-log**.
