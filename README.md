@@ -7,10 +7,11 @@ This is a project to add several samples of the usage of Apache Camel starting f
 ## Environment preparation
 
 These are the required software:
- - Java 22
- - Docker
- - Quarkus
- - Apache Camel
+
+- Java 22
+- Docker
+- Quarkus
+- Apache Camel
 
 ## Project creation
 
@@ -36,3 +37,12 @@ Build and test the project created:
 ```bash
 mvn clean compile install quarkus:dev
 ```
+
+## Project index
+
+This is a description of every project:
+
+- [Project-1](./project-1/): This project is a Quarkus Camel route written in Java DSL:
+  - From: A timer defined with Camel Quarkus timer.
+  - To: A log defined with Camel Quarkus log.
+  - Message: A hardcoded message.
