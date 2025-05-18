@@ -44,3 +44,4 @@ This is a description of every project:
 
 - [Project-1](./project-1/): This project is a simple route written in Java DSL that prints in a log a hardcoded message every 2 seconds. It uses a **camel-timer** and **camel-log**.
 - [Project-2](./project-2/): This project is a route written in Java DSL that exposes 3 Rest endpoints and routes every request to an internal routes that set the response of the endpoints and prints them in a log. It uses a **camel-rest**, **camel-direct** and **camel-log**.
+- [Project-3](./project-3/): This project is a migration of project-1 and project-2 in Yaml DSL. It uses a **camel-timer**, **camel-rest**, **camel-direct**, **camel-log**, and **camel-yaml-dsl**.

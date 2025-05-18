@@ -1,0 +1,13 @@
+- rest:
+    path: /testApi
+    get:
+      - path: /heartbeat
+        produces: application/json
+        to: direct:getHeartbeat
+      - path: /user/{name}
+        produces: application/json
+        to: direct:fetchUser
+    post:
+      - path: /failure
+        produces: application/json
+        to: direct:failureExample
