@@ -1,0 +1,30 @@
+- route:
+    id: "direct-heartbeat-route"
+    from:
+      uri: "direct:getHeartbeat"
+      steps:
+        - setBody:
+            simple: "{\"status\": \"API active - current exchangeId: ${exchangeId}\"}"
+        - to: "log:from=yaml"
+- route:
+    id: "direct-fetchUser-route"
+    from:
+      uri: "direct:fetchUser"
+      steps:
+        - setHeader:
+            name: "CamelHttpResponseCode"
+            constant: 404
+        - setBody:
+            simple: "{\"status\": \"User with name: ${headers.name} not found\"}"
+        - to: "log:from=yaml"
+- route:
+    id: "direct-failureExample-route"
+    from:
+      uri: "direct:failureExample"
+      steps:
+        - setHeader:
+            name: "CamelHttpResponseCode"
+            constant: 500
+        - setBody:
+            simple: "{\"status\": \"Failure for exchange with id: ${exchangeId}\"}"
+        - to: "log:from=yaml"
