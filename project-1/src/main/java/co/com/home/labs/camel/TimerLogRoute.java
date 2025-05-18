@@ -3,11 +3,11 @@ package co.com.home.labs.camel;
 
 import org.apache.camel.builder.RouteBuilder;
 
-public class HelloWorldRoute extends RouteBuilder {
+public class TimerLogRoute extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         from("timer:example?period=2000")
                 .setBody(constant("Hello Quarkus and Camel"))
-                .to("log:" + HelloWorldRoute.class.getName() );
+                .to("log:" + TimerLogRoute.class.getName() );
     }
 }

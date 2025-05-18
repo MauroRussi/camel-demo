@@ -7,10 +7,11 @@ This is a project to add several samples of the usage of Apache Camel starting f
 ## Environment preparation
 
 These are the required software:
- - Java 22
- - Docker
- - Quarkus
- - Apache Camel
+
+- Java 22
+- Docker
+- Quarkus
+- Apache Camel
 
 ## Project creation
 
@@ -36,3 +37,10 @@ Build and test the project created:
 ```bash
 mvn clean compile install quarkus:dev
 ```
+
+## Project index
+
+This is a description of every project:
+
+- [Project-1](./project-1/): This project is a simple route written in Java DSL that prints in a log a hardcoded message every 2 seconds. It uses a **camel-timer** and **camel-log**.
+- [Project-2](./project-2/): This project is a route written in Java DSL that exposes 3 Rest endpoints and routes every request to an internal routes that set the response of the endpoints and prints them in a log. It uses a **camel-rest**, **camel-direct** and **camel-log**.
