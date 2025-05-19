@@ -12,7 +12,7 @@ This is a project using **Apache Karavan** that aims to:
  1. Set the following environment variables:
 
     ```bash
-    export KARAVAN_GIT_USERNAME=
+    export KARAVAN_GIT_USERNAME=<DUMMY_USERNAME>
     export KARAVAN_GIT_REPOSITORY=<URL_REPOSITORY>
     export KARAVAN_GIT_PASSWORD=
     export KARAVAN_REGISTRY_URL=
