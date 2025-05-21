@@ -106,7 +106,6 @@ https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
    # Deploy rest routes
    kamel -n camel-k run ./routes/kamel/rest-routes.camel.yaml
 
-
    # Query routes
    kamel -n camel-k get
 
@@ -117,9 +116,9 @@ https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
    kamel -n camel-k delete timer-routes
    ```
 
-
 ### Insights
 
 - Query the logs of operator pod to find errors.
 - **kamel run** command must use a namespace which has a Camel K operator deployed.
 - If **kamel log <route>** table does not have information, the deployment failed.
+- Every route.caml.yaml is a new pod deployed, then routes that share flows must be in a single yaml file.
