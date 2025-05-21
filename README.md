@@ -63,3 +63,4 @@ This is a description of every project:
 - [Project-2](./project-2/): This project is a route written in Java DSL that exposes 3 Rest endpoints and routes every request to an internal routes that set the response of the endpoints and prints them in a log. It uses a **camel-rest**, **camel-direct** and **camel-log**.
 - [Project-3](./project-3/): This project is a migration of project-1 and project-2 in Yaml DSL. It uses a **camel-timer**, **camel-rest**, **camel-direct**, **camel-log**, and **camel-yaml-dsl**.
 - [Project-4](./project-3/): This project is based on project-3 but the Yaml DSLs were created using **Karavan**. It uses **Jbang** and **Karavan**
+- [Project-5](./project-5/): This project is the installation steps of **Camel K** and deployment of same routes as project-4.

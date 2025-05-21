@@ -1,0 +1,11 @@
+apiVersion: camel.apache.org/v1
+kind: IntegrationPlatform
+metadata:
+  labels:
+    app: camel-k
+  name: camel-k
+spec:
+  build:
+    registry:
+      address: 10.101.179.211
+      insecure: true

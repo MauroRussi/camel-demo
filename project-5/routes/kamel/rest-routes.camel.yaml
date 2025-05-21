@@ -1,0 +1,92 @@
+- rest:
+    id: rest-6765
+    path: /testApi
+    get:
+      - id: get-5c74
+        path: /heartbeat
+        to: direct:getHeartbeat
+        produces: application/json
+      - id: get-5f47
+        path: /user/{name}
+        to: direct:fetchUser
+        produces: application/json
+    post:
+      - id: post-0a53
+        path: /failure
+        to: direct:failureExample
+        produces: application/json
+- route:
+    id: route-c292
+    nodePrefixId: route-8c5
+    from:
+      id: getHeartbeat
+      uri: direct
+      variableReceive: route:undefined
+      parameters:
+        name: getHeartbeat
+      steps:
+        - setBody:
+            id: setBody-0c12
+            expression:
+              simple:
+                id: simple-c856
+                expression: "{\"status\": \"API active - current exchangeId: ${exchangeId}\"}"
+        - to:
+            id: to-0b0c
+            uri: log
+            parameters:
+              loggerName: from=yaml
+- route:
+    id: route-cb59
+    nodePrefixId: route-881
+    from:
+      id: from-7f18
+      uri: direct
+      parameters:
+        name: fetchUser
+      steps:
+        - setHeader:
+            id: setHeader-f379
+            name: CamelHttpResponseCode
+            expression:
+              simple:
+                id: simple-2261
+                expression: "404"
+        - setBody:
+            id: setBody-8397
+            expression:
+              simple:
+                id: simple-017e
+                expression: "{\"status\": \"User with name: ${headers.name} not found\"}"
+        - to:
+            id: to-8d22
+            uri: log
+            parameters:
+              loggerName: from=yaml
+- route:
+    id: route-5a53
+    nodePrefixId: route-9f6
+    from:
+      id: from-d2b8
+      uri: direct
+      parameters:
+        name: failureExample
+      steps:
+        - setHeader:
+            id: setHeader-e539
+            name: CamelHttpResponseCode
+            expression:
+              constant:
+                id: constant-e63c
+                expression: "500"
+        - setBody:
+            id: setBody-00eb
+            expression:
+              simple:
+                id: simple-4620
+                expression: "{\"status\": \"Failure for exchange with id: ${exchangeId}\"}"
+        - to:
+            id: to-317e
+            uri: log
+            parameters:
+              loggerName: from=yaml

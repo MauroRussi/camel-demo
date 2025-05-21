@@ -1,0 +1,21 @@
+- route:
+    id: simple-timer
+    nodePrefixId: route-802
+    from:
+      id: from-3327
+      uri: timer
+      parameters:
+        timerName: simple-timer
+        period: "2000"
+      steps:
+        - setBody:
+            id: setBody-7acf
+            expression:
+              constant:
+                id: constant-ae10
+                expression: Hello Quarkus and Camel
+        - to:
+            id: to-637a
+            uri: log
+            parameters:
+              loggerName: from=yaml
