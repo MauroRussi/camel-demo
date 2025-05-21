@@ -18,4 +18,4 @@
             id: to-637a
             uri: log
             parameters:
-              loggerName: from=yaml
+              loggerName: from=kamel-yaml
