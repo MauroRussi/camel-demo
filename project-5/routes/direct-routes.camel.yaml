@@ -1,20 +1,3 @@
-- rest:
-    id: rest-6765
-    path: /testApi
-    get:
-      - id: get-5c74
-        path: /heartbeat
-        to: direct:getHeartbeat
-        produces: application/json
-      - id: get-5f47
-        path: /user/{name}
-        to: direct:fetchUser
-        produces: application/json
-    post:
-      - id: post-0a53
-        path: /failure
-        to: direct:failureExample
-        produces: application/json
 - route:
     id: route-c292
     nodePrefixId: route-8c5
@@ -35,7 +18,7 @@
             id: to-0b0c
             uri: log
             parameters:
-              loggerName: from=yaml
+              loggerName: from=kamel-yaml
 - route:
     id: route-cb59
     nodePrefixId: route-881
@@ -62,7 +45,7 @@
             id: to-8d22
             uri: log
             parameters:
-              loggerName: from=yaml
+              loggerName: from=kamel-yaml
 - route:
     id: route-5a53
     nodePrefixId: route-9f6
@@ -89,4 +72,4 @@
             id: to-317e
             uri: log
             parameters:
-              loggerName: from=yaml
+              loggerName: from=kamel-yaml

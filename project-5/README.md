@@ -4,7 +4,7 @@ This is a project to explain steps to install **Camel K** and deployment some ro
 
 ## Steps to run the demo
 
-https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
+This document was the key to deploy this: [https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0]
 
 ### Install Minikube using Docker (Colima)
 
@@ -81,11 +81,11 @@ https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
    $ kamel version
    ```
 
-2. Deploy, check, and delete route
+2. Deploy, check, and delete timer route
 
    ```bash
    # Deploy timer route
-   kamel -n camel-k run ./routes/kamel/timer-routes-camel.yaml
+   kamel -n camel-k run --name timer-routes ./routes/timer-routes.camel.yaml
 
    # Query routes
    kamel -n camel-k get
@@ -97,23 +97,17 @@ https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
    kamel -n camel-k delete timer-routes
    ```
 
-3. Other deployments
+3. Deploy, check, and delete two dependent routes
 
    ```bash
-   # Deploy direct routes
-   kamel -n camel-k run ./routes/kamel/direct-routes.camel.yaml
-
-   # Deploy rest routes
-   kamel -n camel-k run ./routes/kamel/rest-routes.camel.yaml
-
-   # Query routes
-   kamel -n camel-k get
+   # Deploy multiple routes
+   kamel -n camel-k run --name rest-routes ./routes/direct-routes.camel.yaml ./routes/rest-routes.camel.yaml
 
    # Query logs
-   kamel -n camel-k log timer-routes
+   kamel -n camel-k log rest-routes
 
    # Delete 
-   kamel -n camel-k delete timer-routes
+   kamel -n camel-k delete rest-routes   
    ```
 
 ### Insights
@@ -121,4 +115,3 @@ https://artifacthub.io/packages/helm/camel-k/camel-k/2.5.0
 - Query the logs of operator pod to find errors.
 - **kamel run** command must use a namespace which has a Camel K operator deployed.
 - If **kamel log <route>** table does not have information, the deployment failed.
-- Every route.caml.yaml is a new pod deployed, then routes that share flows must be in a single yaml file.
